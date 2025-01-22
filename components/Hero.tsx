@@ -44,28 +44,43 @@ const Hero = () => {
 
       <div className="mx-auto flex justify-center items-center ">
         <nav className="container flex justify-center items-center space-x-4 bg-gray-100 p-4 top-5 mb-4 z-50 shadow-md fixed gap-4 rounded-lg">
+          
           <button
             onClick={() => {scrollToSection(aboutRef);()=>setActiveSection("about")}}
             className="text-gray-700 hover:text-blue-500 text-md font-medium relative transition-all nav-link"
           >
             About
             <span
-          className={`absolute left-0 bottom-0 h-1 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full ${
-            activeSection === "about" ? "w-full" : ""
-          }`}
-        ></span>
+              className={`absolute left-0 bottom-0 h-1 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full ${
+                activeSection === "about" ? "w-full" : ""
+              }`}
+            ></span>
           </button>
+
+
           <button
             onClick={() => {scrollToSection(projectsRef);setActiveSection("projects")}}
             className="text-gray-700 hover:text-blue-500 text-md font-medium relative transition-all nav-link"
           >
             Projects
+            <span
+              className={`absolute left-0 bottom-0 h-1 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full ${
+                activeSection === "projects" ? "w-full" : ""
+              }`}
+            ></span>
           </button>
+
+
           <button
             onClick={() => {scrollToSection(contactRef);setActiveSection("contact")}}
             className="text-gray-700 hover:text-blue-500 text-md font-medium relative transition-all nav-link"
           >
             Contact
+               <span
+                className={`absolute left-0 bottom-0 h-1 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full ${
+                  activeSection === "contact" ? "w-full" : ""
+                }`}
+              ></span>
           </button>
         </nav>
       </div>
