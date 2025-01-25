@@ -1,9 +1,9 @@
-import Navigation from "@/components/Hero";
+import Navigation from "@/app/_components/Hero";
 // import Image from "next/image";
 
 export default function Home() {
   return (
-      <main
+    <main
       className="
         relative
         bg-black-100
@@ -16,15 +16,8 @@ export default function Home() {
         sm:px-10 
         px-5
       "
-      >
-        {/* <div
-        className="
-        max-w-7xl
-        w-full
-        "
-        > */}
-            <Navigation/>
-        {/* </div> */}
-      </main>
+    >
+      <Navigation />
+    </main>
   );
 }

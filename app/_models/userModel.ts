@@ -1,5 +1,5 @@
-import mongoose, { Document, Schema, Model } from "mongoose";
-import bcrypt from "bcrypt";
+import mongoose, { Document, Schema, Model, Types } from "mongoose";
+import bcryptjs from "bcryptjs";
 
 // Regular expressions for validation
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -26,6 +26,7 @@ interface IExperience {
 
 // Interface for User Document
 export interface IUser extends Document {
+  _id: Types.ObjectId;
   name: string;
   email: string;
   password: string;
@@ -145,8 +146,8 @@ userSchema.pre("save", async function (next) {
 
   try {
     const saltRounds = parseInt(process.env.SALT || "10", 10);
-    const salt = await bcrypt.genSalt(saltRounds);
-    user.password = await bcrypt.hash(user.password, salt);
+    const salt = await bcryptjs.genSalt(saltRounds);
+    user.password = await bcryptjs.hash(user.password, salt);
     next();
   } catch (err) {
     return next(err as Error);
@@ -158,7 +159,7 @@ userSchema.methods.comparePassword = async function (
   candidatePassword: string
 ): Promise<boolean> {
   const user = this as IUser;
-  return await bcrypt.compare(candidatePassword, user.password);
+  return await bcryptjs.compare(candidatePassword, user.password);
 };
 
 // Model Definition
