@@ -1,12 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client"
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import Contact from "@/app/_components/Contact";
 import About from "./About";
 import Project from "./Project";
 import Navigation from "./Navigation";
 import NavButton from "./NavButton";
+import { useTheme } from "../_context/themeProvider";
+import { FiMoon } from "react-icons/fi";
+import { FiSun } from "react-icons/fi";
 const Hero = () => {
+  const { theme, toggleTheme } = useTheme();
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
@@ -65,10 +70,13 @@ const Hero = () => {
           activeSection={activeSection}
           onClick={() => scrollToSection(contactRef)}
         />
+        <button onClick={toggleTheme}>
+          {theme == "dark" ? <FiMoon className="dark:text-white" /> : <FiSun />}
+        </button>
       </Navigation>
 
       {/* Sections */}
-      <div className="flex flex-col justify-center gap-4 w-full mt-24  mx-auto">
+      <div className="flex flex-col justify-center gap-4 w-full mt-24  mx-auto ">
         <About aboutRef={aboutRef} />
         <Project projectRef={projectsRef} />
         <Contact contactRef={contactRef} />

@@ -6,7 +6,7 @@ export default function Home() {
     <main
       className="
         relative
-        bg-black-100
+        
         flex
         items-center
         justify-center

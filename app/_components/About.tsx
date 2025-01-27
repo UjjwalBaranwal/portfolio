@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { RefObject } from "react";
 import { Card } from "./Card";
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
@@ -11,8 +11,8 @@ interface AboutProps {
 
 function About({ aboutRef }: AboutProps) {
   return (
-    <div ref={aboutRef} className="min-h-screen bg-black p-8 border-b">
-      <div className="flex justify-between items-center gap-x-4 h-full w-full p-1 border-black border">
+    <div ref={aboutRef} className="min-h-screen dark:bg-black p-8">
+      <div className="flex justify-between items-center gap-x-4 h-full w-full p-1 border-black border rounded  ">
         {/* Cards */}
         <div className="w-1/2 h-full p-1 flex flex-col items-start gap-0">
           <Card
@@ -49,10 +49,10 @@ function About({ aboutRef }: AboutProps) {
         {/* Text */}
         <div className="w-1/2 h-1/2 p-1 flex flex-col items-center gap-4 justify-start">
           <div className="my-8 text-center">
-            <h1 className="text-5xl font-extrabold text-white tracking-wide mb-4">
+            <h1 className="text-5xl font-extrabold dark:text-white tracking-wide mb-4">
               Hi, I'm <span className="text-blue-500">Shikhar Pandya</span>
             </h1>
-            <p className="text-lg text-white max-w-2xl mx-auto">
+            <p className="text-lg dark:text-white max-w-2xl mx-auto">
               A passionate{" "}
               <span className="text-blue-500 font-semibold">
                 Full Stack Developer
@@ -112,8 +112,7 @@ function About({ aboutRef }: AboutProps) {
                 <SiCodeforces size={30} />
               </a>
 
-              <div className="border-l-2 border-white">
-              </div>
+              <div className="border-l-2 border-white"></div>
               <a
                 href="https://www.instagram.com/shikhar_0487/"
                 target="_blank"
@@ -136,9 +135,7 @@ function About({ aboutRef }: AboutProps) {
       </div>
 
       {/* Tech Stack Animated balls */}
-      <div>
-        {/* <Tech/> */}
-      </div> 
+      <div>{/* <Tech/> */}</div>
     </div>
   );
 }
