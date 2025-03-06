@@ -1,7 +1,5 @@
 // "use client";
 import { RefObject } from "react";
-
-import Robot from "./Robot";
 import FormContact from "@/app/_components/FormContact";
 import RobotPart from "./RobotPart";
 
