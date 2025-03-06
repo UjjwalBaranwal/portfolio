@@ -7,7 +7,8 @@ export default function Robot() {
   const [hasError, setHasError] = useState(false);
 
   return (
-    <div className="w-full h-screen flex items-center justify-center">
+    <div className="hidden md:flex w-full h-screen items-center justify-center">
+      {/* Visible from md (≥768px) */}
       <div className="w-[90%] h-[80%] max-w-4xl bg-gray-100 dark:bg-gray-800 rounded-3xl shadow-lg flex items-center justify-center transition-all duration-300">
         {/* Conditional Rendering */}
         {hasError ? (
@@ -27,7 +28,7 @@ export default function Robot() {
               onError={() => setHasError(true)}
               className={`transition-opacity duration-500 ${
                 isLoaded ? "opacity-100" : "opacity-0"
-              }  `}
+              }`}
             />
           </>
         )}
