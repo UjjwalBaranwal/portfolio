@@ -51,37 +51,8 @@ export function Card({ heading, description, Img_link, profile }: CardProps) {
             alt="thumbnail"
           />
         </CardItem>
-        {/* Coding Profile Link */}
-        {heading === "Coding Enthusiast" && profile && (
-          <CardItem as="div" translateZ="30" className="mt-4 flex justify-evenly items-center gap-10">
-            <Link href={profile[0]} target="_blank" className="flex justify-center items-center gap-1">
-              <Image
-                src="/leetcode_icon.png" 
-                alt="https://leetcode.com/u/shikharpandya007/"
-                width={30}
-                height={30}
-                className="hover:scale-110 transition-transform"
-              />
-              <div className="text-wrap w-10 text-bold text-center text-sm">
-                Leetcode Profile
-              </div>
-            </Link>
-
-            <Link href={profile[0]} target="_blank" className="flex justify-center items-center gap-1">
-              <Image
-                src="/codeforces.png" 
-                alt="https://codeforces.com/profile/shikharpandya007"
-                width={30}
-                height={30}
-                className="hover:scale-110 transition-transform"
-              />
-              <div className="text-wrap text-bold w-10 text-center text-sm">
-                Codeforces Profile
-              </div>
-            </Link>
-
-          </CardItem>
-        )}
+        
+     
       </CardBody>
     </CardContainer>
   );

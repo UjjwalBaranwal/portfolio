@@ -12,9 +12,9 @@ interface AboutProps {
 function About({ aboutRef }: AboutProps) {
   return (
     <div ref={aboutRef} className="min-h-screen dark:bg-black p-8">
-      <div className="flex justify-between items-center gap-x-4 h-full w-full p-1 border-black border rounded  ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-x-5  sm:gap-y-3  h-full w-full p-1 border-black border rounded  ">
         {/* Cards */}
-        <div className="w-1/2 h-full p-1 flex flex-col items-start gap-0">
+        <div className="order-2 sm:order-2 md:order-1 lg:order-1 h-full p-1 flex flex-col items-start justify-center gap-0">
           <Card
             heading="Design"
             description="I am proficient in designing web pages"
@@ -47,12 +47,12 @@ function About({ aboutRef }: AboutProps) {
         </div>
 
         {/* Text */}
-        <div className="w-1/2 h-1/2 p-1 flex flex-col items-center gap-4 justify-start">
-          <div className="my-8 text-center">
-            <h1 className="text-5xl font-extrabold dark:text-white tracking-wide mb-4">
+        <div className="order-1 sm:order-1  md:order-2 lg:order-2 h-full p-1 flex flex-col items-center gap-4 justify-start">
+          <div className="my-3 sm:my-8 w-full text-center text-md sm:text-2xl md:text-3xl lg:text-5xl">
+            <h1 className=" font-extrabold dark:text-white tracking-wide mb-1 sm:mb-4">
               Hi, I'm <span className="text-blue-500">Shikhar Pandya</span>
             </h1>
-            <p className="text-lg dark:text-white max-w-2xl mx-auto">
+            <p className="text-sm sm:text-md md:text-lg lg:text-lg dark:text-white max-w-2xl mx-auto">
               A passionate{" "}
               <span className="text-blue-500 font-semibold">
                 Full Stack Developer
@@ -67,22 +67,23 @@ function About({ aboutRef }: AboutProps) {
           </div>
 
           {/* Profile photo in a circle */}
-          <div className="flex flex-col items-center mt-6">
-            <img
-              src="shikhar_photo.jpeg"
-              alt="Shikhar Pandya"
-              className="w-96 h-96 rounded-full text-white border-4 border-blue-500 shadow-lg mb-4"
-            />
+          <div className="flex w-full flex-col items-center gap-4">
+          <img
+            src="shikhar_photo.jpeg"
+            alt="Shikhar Pandya"
+            className="w-44 h-44 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-96 lg:h-96 rounded-full text-white border-4 border-blue-500 shadow-lg mb-4"
+          />
+
 
             {/* Social Media Profiles */}
-            <div className="flex gap-6 text-white">
-              <a
+            <div className="flex gap-x-2 text-md sm:text-xl sm:gap-6 justify-evenly items-center text-black dark:text-white">
+            <a
                 href="https://www.linkedin.com/in/shikhar-pandya/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-400"
               >
-                <FaLinkedin size={30} />
+                <FaLinkedin className="w-5 h-8 sm:w-5 sm:h-5 md:w-6 md:h-8" />
               </a>
               <a
                 href="https://github.com/shikharpandya007"
@@ -90,7 +91,7 @@ function About({ aboutRef }: AboutProps) {
                 rel="noopener noreferrer"
                 className="hover:text-gray-400"
               >
-                <FaGithub size={30} />
+                <FaGithub className="w-5 h-8 sm:w-5 sm:h-5 md:w-6 md:h-8" />
               </a>
 
               <div className="border-l-2 border-white"></div>
@@ -100,7 +101,7 @@ function About({ aboutRef }: AboutProps) {
                 rel="noopener noreferrer"
                 className="hover:text-yellow-500"
               >
-                <SiLeetcode size={30} />
+                <SiLeetcode className="w-5 h-8 sm:w-5 sm:h-5 md:w-6 md:h-8" />
               </a>
 
               <a
@@ -109,7 +110,7 @@ function About({ aboutRef }: AboutProps) {
                 rel="noopener noreferrer"
                 className="hover:text-blue-500"
               >
-                <SiCodeforces size={30} />
+                <SiCodeforces className="w-5 h-8 sm:w-5 sm:h-5 md:w-6 md:h-8" />
               </a>
 
               <div className="border-l-2 border-white"></div>
@@ -119,7 +120,7 @@ function About({ aboutRef }: AboutProps) {
                 rel="noopener noreferrer"
                 className="hover:text-pink-500"
               >
-                <SiInstagram size={30} />
+                <SiInstagram className="w-5 h-8 sm:w-5 sm:h-5 md:w-6 md:h-8" />
               </a>
               <a
                 href="https://twitter.com/your_profile"
@@ -127,7 +128,7 @@ function About({ aboutRef }: AboutProps) {
                 rel="noopener noreferrer"
                 className="hover:text-blue-500"
               >
-                <FaTwitter size={30} />
+                <FaTwitter className="w-5 h-8 sm:w-5 sm:h-5 md:w-6 md:h-8" />
               </a>
             </div>
           </div>
