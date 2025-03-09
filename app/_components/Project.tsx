@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -10,10 +11,6 @@ type Project = {
   image: string;
 };
 
-type ProjectProps = {
-  projectRef: React.RefObject<HTMLDivElement>;
-  projects: Project[];
-};
 const itemsPerPage = 6;
 const domains = ["All", "AI/ML", "Web Development", "Blockchain"];
 

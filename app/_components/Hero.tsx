@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
 import Contact from "@/app/_components/Contact";
-import About from "./About";
-import Project from "./Project";
-import Navigation from "./Navigation";
-import NavButton from "./NavButton";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { FiMoon, FiSun } from "react-icons/fi";
+import { IoPersonOutline } from "react-icons/io5";
 import { useTheme } from "../_context/themeProvider";
-import { FiMoon } from "react-icons/fi";
-import { FiSun } from "react-icons/fi";
+import About from "./About";
+import NavButton from "./NavButton";
+import Navigation from "./Navigation";
+import Project from "./Project";
 const Hero = () => {
   const { theme, toggleTheme } = useTheme();
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -48,40 +49,43 @@ const Hero = () => {
   };
 
   return (
-    <div className="max-w-7xl w-full ">
-      {/* <div className="mx-auto flex justify-center items-center "> */}
+    // <div className="max-w-7xl w-full ">
+    //   {/* <div className="mx-auto flex justify-center items-center "> */}
 
-      <Navigation>
-        <NavButton
-          label="About"
-          targetSection="about"
-          activeSection={activeSection}
-          onClick={() => scrollToSection(aboutRef)}
-        />
-        <NavButton
-          label="Projects"
-          targetSection="projects"
-          activeSection={activeSection}
-          onClick={() => scrollToSection(projectsRef)}
-        />
-        <NavButton
-          label="Contact"
-          targetSection="contact"
-          activeSection={activeSection}
-          onClick={() => scrollToSection(contactRef)}
-        />
-        <button onClick={toggleTheme}>
-          {theme == "dark" ? <FiMoon className="dark:text-white" /> : <FiSun />}
-        </button>
-      </Navigation>
+    //   <Navigation>
+    //     <NavButton
+    //       label="About"
+    //       targetSection="about"
+    //       activeSection={activeSection}
+    //       onClick={() => scrollToSection(aboutRef)}
+    //     />
+    //     <NavButton
+    //       label="Projects"
+    //       targetSection="projects"
+    //       activeSection={activeSection}
+    //       onClick={() => scrollToSection(projectsRef)}
+    //     />
+    //     <NavButton
+    //       label="Contact"
+    //       targetSection="contact"
+    //       activeSection={activeSection}
+    //       onClick={() => scrollToSection(contactRef)}
+    //     />
+    //     <button onClick={toggleTheme}>
+    //       {theme == "dark" ? <FiMoon className="dark:text-white" /> : <FiSun />}
+    //     </button>
+    //     <Link href={"/user"}>
+    //       <IoPersonOutline />{" "}
+    //     </Link>
+    //   </Navigation>
 
-      {/* Sections */}
-      <div className="flex flex-col justify-center gap-4 w-full mt-24  mx-auto ">
-        <About aboutRef={aboutRef} />
-        <Project projectRef={projectsRef} />
-        <Contact contactRef={contactRef} />
-      </div>
-    </div>
+    //   {/* Sections */}
+    //   <div className="flex flex-col justify-center gap-4 w-full mt-24  mx-auto ">
+    //     <About aboutRef={aboutRef} />
+    //     <Project projectRef={projectsRef} />
+    //     <Contact contactRef={contactRef} />
+    //   </div>
+    // </div>
   );
 };
 
