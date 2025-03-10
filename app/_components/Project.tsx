@@ -206,7 +206,7 @@ const projects = [
   },
 ];
 
-const Project = ({ projectRef }) => {
+const Project = ({ projectRef }: any) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedDomain, setSelectedDomain] = useState("All");
 
@@ -224,16 +224,20 @@ const Project = ({ projectRef }) => {
   return (
     <div
       ref={projectRef}
-      className="min-h-screen bg-blue-50 dark:bg-gray-900 p-8 border-b transition-colors duration-300"
+      className="flex flex-col cust justify-around gap-y-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 min-h-screen rounded-xl border-b p-8 transition-colors duration-300"
     >
-      <h2 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">
-        Projects
-      </h2>
-      <p className="text-gray-600 dark:text-gray-300 text-center mb-8">
-        Here are some of the projects I’ve worked on.
-      </p>
+      {/* Section Title */}
+      <div>
+        <h2 className="text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+          Projects 🚀
+        </h2>
+        <p className="text-lg text-gray-600 dark:text-gray-300 text-center mb-6">
+          Here are some of the projects I’ve worked on.
+        </p>
+      </div>
 
-      <div className="flex justify-center mb-6">
+      {/* Domain Filter Buttons */}
+      <div className="flex justify-center gap-4 mb-6 flex-wrap">
         {domains.map((domain) => (
           <button
             key={domain}
@@ -241,10 +245,10 @@ const Project = ({ projectRef }) => {
               setSelectedDomain(domain);
               setCurrentPage(1);
             }}
-            className={`px-4 py-2 mx-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
+            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 shadow-md hover:scale-110 ${
               selectedDomain === domain
-                ? "bg-blue-600 text-white"
-                : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white"
+                ? "bg-blue-600 text-white shadow-blue-500"
+                : "bg-white dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
             }`}
           >
             {domain}
@@ -252,59 +256,64 @@ const Project = ({ projectRef }) => {
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Project Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 gap-6">
         {paginatedProjects.map((project, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden p-4 transition-colors duration-300"
+            className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
           >
-            <Image
-              src={project.image}
-              alt={project.name}
-              width={400}
-              height={200}
-              className="w-full h-48 object-cover rounded-t-lg"
-            />
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mt-3">
-              {project.name}
-            </h3>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">
-              {project.domain}
-            </p>
-            <div className="flex gap-4 mt-3">
-              <a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
-              >
-                GitHub
-              </a>
-              {project.isDeployed && project.deployedLink && (
+            <div className="relative h-48">
+              <Image
+                src={project.image}
+                alt={project.name}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-t-lg"
+              />
+            </div>
+            <div className="p-5">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                {project.name}
+              </h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                {project.domain}
+              </p>
+              <div className="flex justify-between items-center gap-4">
                 <a
-                  href={project.deployedLink}
+                  href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-green-600 dark:text-green-400 hover:underline"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md shadow-lg hover:shadow-blue-500 transition-all duration-300 transform hover:scale-105"
                 >
-                  Live Demo
+                  GitHub
                 </a>
-              )}
+                {project.isDeployed && project.deployedLink && (
+                  <a
+                    href={project.deployedLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-green-600 text-white rounded-md shadow-lg hover:shadow-green-500 transition-all duration-300 transform hover:scale-105"
+                  >
+                    Live Demo
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         ))}
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-8 gap-4">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           disabled={currentPage === 1}
-          className="px-4 py-2 mx-2 bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg disabled:opacity-50"
+          className="px-6 py-2 border-2 border-[#ff6f91] text-[#ff6f91] bg-white rounded-full shadow-[0_0_10px_#ff6f91] hover:shadow-[0_0_20px_#ff6f91] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Prev
         </button>
-        <span className="px-4 py-2 text-gray-900 dark:text-white">
+        <span className="px-6 py-2 border-[#ff9671] bg-white shadow-[0_0_10px_#ff9671] hover:shadow-[0_0_20px_#ff9671] text-black rounded-full ">
           Page {currentPage} of {totalPages}
         </span>
         <button
@@ -312,7 +321,7 @@ const Project = ({ projectRef }) => {
             setCurrentPage((prev) => Math.min(prev + 1, totalPages))
           }
           disabled={currentPage === totalPages}
-          className="px-4 py-2 mx-2 bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg disabled:opacity-50"
+          className="px-6 py-2 border-2 border-[#ff6f91] text-[#ff6f91] bg-white rounded-full shadow-[0_0_10px_#ff6f91] hover:shadow-[0_0_20px_#ff6f91] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Next
         </button>
@@ -322,6 +331,7 @@ const Project = ({ projectRef }) => {
 };
 
 export default Project;
+
 // function Project({ projectRef }: ProjectProps) {
 //   return (
 //     <div ref={projectRef} className="min-h-screen bg-blue-50 p-8 border-b">

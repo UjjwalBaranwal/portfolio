@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/drei": "^9.121.3",
-    "@react-three/fiber": "^8.17.12",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.9.59",
     "bcryptjs": "^2.4.3",
