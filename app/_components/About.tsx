@@ -215,6 +215,10 @@ import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 import { SiCodeforces, SiInstagram, SiLeetcode } from "react-icons/si";
 import Tech from "./Tech";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+const ThreeDBall = dynamic(() => import("../_components/canvas/threeDBall"), {
+  ssr: false,
+});
 
 interface AboutProps {
   aboutRef: RefObject<HTMLDivElement>;
@@ -240,7 +244,7 @@ const socialLinks = [
     name: "GitHub",
     url: "https://github.com/shikharpandya007",
     icon: "FaGithub",
-    hoverColor: "hover:text-gray-400",
+    hoverColor: "hover:text-red-400",
   },
   {
     name: "LeetCode",
@@ -326,11 +330,14 @@ function About({ aboutRef }: AboutProps) {
               className="w-44 h-44 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-96 lg:h-96 rounded-full text-white border-4 border-blue-500 shadow-lg mb-4"
             />
 
-            <div className="flex flex-wrap gap-x-4 text-md sm:text-xl sm:gap-6 justify-center items-center text-black dark:text-white">
+            <div className="flex flex-wrap gap-x-4 text-md sm:text-xl sm:gap-6 justify-start items-center text-black dark:text-white">
               {socialLinks.map((link, index) => {
                 const Icon = iconComponents[link.icon];
                 return (
-                  <div key={index}>
+                  <div
+                    key={index}
+                    className="flex justify-around gap-x-3 items-center"
+                  >
                     <a
                       href={link.url}
                       target="_blank"
@@ -341,7 +348,7 @@ function About({ aboutRef }: AboutProps) {
                     </a>
                     {(index + 1) % 2 === 0 &&
                       index !== socialLinks.length - 1 && (
-                        <div className="border-l-2 border-white h-6"></div>
+                        <div className="border-l-2 border-black sm::h-3  dark:border-white h-8"></div>
                       )}
                   </div>
                 );
@@ -350,7 +357,7 @@ function About({ aboutRef }: AboutProps) {
           </div>
         </div>
       </div>
-      <div>{/* <Tech/> */}</div>
+      <div>{/* <ThreeDBall /> */}</div>
     </div>
   );
 }

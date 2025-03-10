@@ -5,16 +5,13 @@ import { PiHamburger } from "react-icons/pi";
 
 function Navigation({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => {
-    setIsOpen((prev) => !prev);
-    // setIsOpen(false);
-  };
+  const toggle = () => setIsOpen((prev) => !prev);
 
   return (
-    <nav className="fixed top-3 left-1/2 transform -translate-x-1/2 w-full max-w-2xl bg-white dark:bg-gray-900 shadow-md dark:shadow-gray-800 rounded-xl p-4 z-50 transition-colors duration-300 ">
+    <nav className="fixed top-3 left-1/2 transform -translate-x-1/2 w-full max-w-2xl bg-white dark:bg-gray-900 shadow-md dark:shadow-gray-800 rounded-xl p-4 z-50 transition-all duration-300 border border-transparent hover:border-blue-500 hover:shadow-[0_0_15px_rgba(0,123,255,0.6)]">
       <div className="flex items-center justify-between w-full md:justify-center">
-        {/* Large screen navigation - centered when md and above */}
-        <div className="hidden md:flex md:gap-x-10 list-none text-gray-900 dark:text-gray-100">
+        {/* Large screen navigation */}
+        <div className="hidden md:flex md:items-center md:gap-x-10 list-none text-gray-900 dark:text-gray-100">
           {children}
         </div>
 
@@ -22,7 +19,7 @@ function Navigation({ children }: { children: React.ReactNode }) {
         <div className="absolute top-2 right-4 md:hidden">
           <button
             onClick={toggle}
-            className="transition-transform duration-300 ease-in-out text-gray-900 dark:text-gray-100"
+            className="transition-transform duration-300 ease-in-out text-gray-900 dark:text-gray-100 hover:text-blue-500"
           >
             {isOpen ? (
               <IoSkullOutline className="text-xl transition-transform duration-300" />
@@ -33,7 +30,7 @@ function Navigation({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      {/* Mobile Menu with Smooth Animation */}
+      {/* Mobile Menu */}
       <div
         className={`absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-md dark:shadow-gray-800 rounded-md p-4 list-none flex flex-col gap-4 items-center transition-all duration-300 ease-in-out md:hidden
         ${

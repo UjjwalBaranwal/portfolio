@@ -98,9 +98,9 @@ export default function Home() {
 
         {/* Sections */}
         <div className="flex flex-col justify-center gap-4 w-full mt-24  mx-auto ">
-          <About aboutRef={aboutRef} />
-          <Project projectRef={projectsRef} />
-          <Contact contactRef={contactRef} />
+          <About aboutRef={aboutRef} className="cust"/>
+          <Project projectRef={projectsRef} className='cust' />
+          <Contact contactRef={contactRef} className='cust'/>
         </div>
       </div>
     </main>
